@@ -8,6 +8,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 import time
 
+
+# this code scrapes photos of a  searched hashtag
+
+
 # specify the path to chromedriver.exe (download and save on your computer)
 driver = webdriver.Chrome()
 driver.get("https://www.instagram.com/")
@@ -51,16 +55,17 @@ time.sleep(5)
 imgs = driver.find_elements_by_tag_name('img')
 imgs = [img.get_attribute('src') for img in imgs]
 
-# save images to computer
-path = os.getcwd()
-path = os.path.join(path, keyword[1:] + "s")
-
-# create directory
-os.mkdir(path)
-
-# download images
-counter = 0
-for image in imgs:
-    save_as = os.path.join(path, keyword[1:] +str(counter)+'.jpg')
-    wget.download(image, save_as)
-    counter += 1
+#-----------------save--------------------------------------------------------
+# # save images to computer
+# path = os.getcwd()
+# path = os.path.join(path, keyword[1:] + "s")
+#
+# # create directory
+# os.mkdir(path)
+#
+# # download images
+# counter = 0
+# for image in imgs:
+#     save_as = os.path.join(path, keyword[1:] +str(counter)+'.jpg')
+#     wget.download(image, save_as)
+#     counter += 1
